@@ -1,10 +1,15 @@
 import 'package:flutter_arch_sample/shared/models/models.dart';
+import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
 import 'todo_data_source.dart';
 
+@injectable
 class TodoRepository implements TodoDataSource {
-  TodoRepository(this.remoteTodoDataSource, this.inMemmoryTodoDataSource);
+  TodoRepository(
+    @Named('RemoteTodoDataSource') this.remoteTodoDataSource,
+    @Named('InMemmoryTodoDataSource') this.inMemmoryTodoDataSource,
+  );
 
   final TodoDataSource remoteTodoDataSource;
   final TodoDataSource inMemmoryTodoDataSource;

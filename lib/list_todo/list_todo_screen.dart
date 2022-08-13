@@ -4,9 +4,9 @@ import 'package:flutter_arch_sample/shared/models/result.dart';
 import 'package:flutter_arch_sample/shared/models/todo.dart';
 
 class ListTodoScreen extends StatefulWidget {
-  const ListTodoScreen({super.key, required this.useCase});
+  const ListTodoScreen({super.key, required this.listTodoUseCase});
 
-  final ListTodoUseCase useCase;
+  final ListTodoUseCase listTodoUseCase;
 
   @override
   State<ListTodoScreen> createState() => _ListTodoScreenState();
@@ -18,7 +18,7 @@ class _ListTodoScreenState extends State<ListTodoScreen> {
   @override
   void initState() {
     super.initState();
-    todoListFuture = widget.useCase.getTodos();
+    todoListFuture = widget.listTodoUseCase.getTodos();
   }
 
   @override

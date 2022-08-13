@@ -1,9 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_arch_sample/shared/models/models.dart';
+import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'todo_data_source.g.dart';
 
+@injectable
 @RestApi(baseUrl: 'https://jsonplaceholder.typicode.com/')
 abstract class TodoApi {
   factory TodoApi(Dio dio, {String baseUrl}) = _TodoApi;
@@ -13,6 +15,9 @@ abstract class TodoApi {
 
   @GET('/todos/{id}')
   Future<TodoModel> getTodoById(@Path('id') int id);
+
+  @factoryMethod
+  static TodoApi create(Dio dio) => TodoApi(dio);
 }
 
 abstract class TodoDataSource {
@@ -22,6 +27,8 @@ abstract class TodoDataSource {
   Future<void> addAllTodos(List<TodoModel> todos);
 }
 
+@Named('InMemmoryTodoDataSource')
+@Injectable(as: TodoDataSource)
 class InMemmoryTodoDataSource implements TodoDataSource {
   final _cache = <int, TodoModel>{};
 
@@ -51,6 +58,8 @@ class InMemmoryTodoDataSource implements TodoDataSource {
   }
 }
 
+@Named('RemoteTodoDataSource')
+@Injectable(as: TodoDataSource)
 class RemoteTodoDataSource implements TodoDataSource {
   RemoteTodoDataSource(this.todoApi);
 

@@ -1,12 +1,10 @@
 import 'dart:async';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_arch_sample/list_todo/list_todo_screen.dart';
 import 'package:flutter_arch_sample/list_todo/list_todo_use_case.dart';
-import 'package:flutter_arch_sample/shared/data/todo_data_source.dart';
-import 'package:flutter_arch_sample/shared/data/todo_repository.dart';
+import 'package:flutter_arch_sample/shared/di/dependencies.dart';
 import 'package:logger/logger.dart';
 
 void main() {
@@ -16,12 +14,13 @@ void main() {
       printEmojis: false,
       lineLength: 120,
       methodCount: 2,
-      colors: true
+      colors: true,
     ),
   );
 
   runZonedGuarded<void>(
     () async {
+      configureDependencies();
       WidgetsFlutterBinding.ensureInitialized();
       runApp(const App());
     },
@@ -46,12 +45,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: ListTodoScreen(
-        useCase: ListTodoUseCase(
-          TodoRepository(
-            RemoteTodoDataSource(TodoApi(Dio())),
-            InMemmoryTodoDataSource(),
-          ),
-        ),
+        listTodoUseCase: inject<ListTodoUseCase>(),
       ),
     );
   }
