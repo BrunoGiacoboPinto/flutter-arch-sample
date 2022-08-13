@@ -1,16 +1,16 @@
-# flutter_arch_sample
+[![CI-QA](https://github.com/BrunoGiacoboPinto/flutter-arch-sample/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/BrunoGiacoboPinto/flutter-arch-sample/actions/workflows/ci.yml)
 
-A new Flutter project.
+## Flutter Architecture Sample
 
-## Getting Started
+A Simple Flutter project to explore architectural concepts.
 
-This project is a starting point for a Flutter application.
+### Project Goals
 
-A few resources to get you started if this is your first Flutter project:
+In order for code to scale and to be maintainable, a software project must have a well-defined
+and easy to understand architecture. This premisses, however, are not easy to achieve.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This project main goals, henceforth, are to test several architectural approaches and compare them in order to support a healthy technical discussion.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Android Architectural Guideline Approach
+
+One possibile first approach to architecture a Flutter application is to try to translate Google`s [Android Architectural Guidelines](https://developer.android.com/topic/architecture) concepts to Flutter concepts.
