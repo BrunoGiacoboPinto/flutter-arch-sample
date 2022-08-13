@@ -1,7 +1,12 @@
 import 'dart:async';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_arch_sample/list_todo/list_todo_screen.dart';
+import 'package:flutter_arch_sample/list_todo/list_todo_use_case.dart';
+import 'package:flutter_arch_sample/shared/data/todo_data_source.dart';
+import 'package:flutter_arch_sample/shared/data/todo_repository.dart';
 import 'package:logger/logger.dart';
 
 void main() {
@@ -11,7 +16,7 @@ void main() {
       printEmojis: false,
       lineLength: 120,
       methodCount: 2,
-      colors: true,
+      colors: true
     ),
   );
 
@@ -36,57 +41,17 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Architecture Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Page(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class Page extends StatefulWidget {
-  const Page({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<Page> createState() => _PageState();
-}
-
-class _PageState extends State<Page> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      home: ListTodoScreen(
+        useCase: ListTodoUseCase(
+          TodoRepository(
+            RemoteTodoDataSource(TodoApi(Dio())),
+            InMemmoryTodoDataSource(),
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }

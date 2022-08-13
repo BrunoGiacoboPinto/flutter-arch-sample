@@ -10,7 +10,5 @@ class Result<T> with _$Result {
     StackTrace? stackTrace,
   }) = _ResultError;
 
-  const factory Result.loading() = _ResultLoading;
-
   const factory Result.value({required T value}) = _ResultValue;
 }

@@ -21,7 +21,6 @@ mixin _$Result<T> {
     required TResult Function(
             String message, Object? error, StackTrace? stackTrace)
         error,
-    required TResult Function() loading,
     required TResult Function(T value) value,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,7 +28,6 @@ mixin _$Result<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String message, Object? error, StackTrace? stackTrace)?
         error,
-    TResult Function()? loading,
     TResult Function(T value)? value,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,7 +35,6 @@ mixin _$Result<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message, Object? error, StackTrace? stackTrace)?
         error,
-    TResult Function()? loading,
     TResult Function(T value)? value,
     required TResult orElse(),
   }) =>
@@ -45,21 +42,18 @@ mixin _$Result<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ResultError<T> value) error,
-    required TResult Function(_ResultLoading<T> value) loading,
     required TResult Function(_ResultValue<T> value) value,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ResultError<T> value)? error,
-    TResult Function(_ResultLoading<T> value)? loading,
     TResult Function(_ResultValue<T> value)? value,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ResultError<T> value)? error,
-    TResult Function(_ResultLoading<T> value)? loading,
     TResult Function(_ResultValue<T> value)? value,
     required TResult orElse(),
   }) =>
@@ -166,7 +160,6 @@ class _$_ResultError<T> implements _ResultError<T> {
     required TResult Function(
             String message, Object? error, StackTrace? stackTrace)
         error,
-    required TResult Function() loading,
     required TResult Function(T value) value,
   }) {
     return error(message, this.error, stackTrace);
@@ -177,7 +170,6 @@ class _$_ResultError<T> implements _ResultError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String message, Object? error, StackTrace? stackTrace)?
         error,
-    TResult Function()? loading,
     TResult Function(T value)? value,
   }) {
     return error?.call(message, this.error, stackTrace);
@@ -188,7 +180,6 @@ class _$_ResultError<T> implements _ResultError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message, Object? error, StackTrace? stackTrace)?
         error,
-    TResult Function()? loading,
     TResult Function(T value)? value,
     required TResult orElse(),
   }) {
@@ -202,7 +193,6 @@ class _$_ResultError<T> implements _ResultError<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ResultError<T> value) error,
-    required TResult Function(_ResultLoading<T> value) loading,
     required TResult Function(_ResultValue<T> value) value,
   }) {
     return error(this);
@@ -212,7 +202,6 @@ class _$_ResultError<T> implements _ResultError<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ResultError<T> value)? error,
-    TResult Function(_ResultLoading<T> value)? loading,
     TResult Function(_ResultValue<T> value)? value,
   }) {
     return error?.call(this);
@@ -222,7 +211,6 @@ class _$_ResultError<T> implements _ResultError<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ResultError<T> value)? error,
-    TResult Function(_ResultLoading<T> value)? loading,
     TResult Function(_ResultValue<T> value)? value,
     required TResult orElse(),
   }) {
@@ -245,121 +233,6 @@ abstract class _ResultError<T> implements Result<T> {
   @JsonKey(ignore: true)
   _$$_ResultErrorCopyWith<T, _$_ResultError<T>> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_ResultLoadingCopyWith<T, $Res> {
-  factory _$$_ResultLoadingCopyWith(
-          _$_ResultLoading<T> value, $Res Function(_$_ResultLoading<T>) then) =
-      __$$_ResultLoadingCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$_ResultLoadingCopyWithImpl<T, $Res>
-    extends _$ResultCopyWithImpl<T, $Res>
-    implements _$$_ResultLoadingCopyWith<T, $Res> {
-  __$$_ResultLoadingCopyWithImpl(
-      _$_ResultLoading<T> _value, $Res Function(_$_ResultLoading<T>) _then)
-      : super(_value, (v) => _then(v as _$_ResultLoading<T>));
-
-  @override
-  _$_ResultLoading<T> get _value => super._value as _$_ResultLoading<T>;
-}
-
-/// @nodoc
-
-class _$_ResultLoading<T> implements _ResultLoading<T> {
-  const _$_ResultLoading();
-
-  @override
-  String toString() {
-    return 'Result<$T>.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ResultLoading<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            String message, Object? error, StackTrace? stackTrace)
-        error,
-    required TResult Function() loading,
-    required TResult Function(T value) value,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String message, Object? error, StackTrace? stackTrace)?
-        error,
-    TResult Function()? loading,
-    TResult Function(T value)? value,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message, Object? error, StackTrace? stackTrace)?
-        error,
-    TResult Function()? loading,
-    TResult Function(T value)? value,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ResultError<T> value) error,
-    required TResult Function(_ResultLoading<T> value) loading,
-    required TResult Function(_ResultValue<T> value) value,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ResultError<T> value)? error,
-    TResult Function(_ResultLoading<T> value)? loading,
-    TResult Function(_ResultValue<T> value)? value,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ResultError<T> value)? error,
-    TResult Function(_ResultLoading<T> value)? loading,
-    TResult Function(_ResultValue<T> value)? value,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ResultLoading<T> implements Result<T> {
-  const factory _ResultLoading() = _$_ResultLoading<T>;
 }
 
 /// @nodoc
@@ -430,7 +303,6 @@ class _$_ResultValue<T> implements _ResultValue<T> {
     required TResult Function(
             String message, Object? error, StackTrace? stackTrace)
         error,
-    required TResult Function() loading,
     required TResult Function(T value) value,
   }) {
     return value(this.value);
@@ -441,7 +313,6 @@ class _$_ResultValue<T> implements _ResultValue<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String message, Object? error, StackTrace? stackTrace)?
         error,
-    TResult Function()? loading,
     TResult Function(T value)? value,
   }) {
     return value?.call(this.value);
@@ -452,7 +323,6 @@ class _$_ResultValue<T> implements _ResultValue<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message, Object? error, StackTrace? stackTrace)?
         error,
-    TResult Function()? loading,
     TResult Function(T value)? value,
     required TResult orElse(),
   }) {
@@ -466,7 +336,6 @@ class _$_ResultValue<T> implements _ResultValue<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ResultError<T> value) error,
-    required TResult Function(_ResultLoading<T> value) loading,
     required TResult Function(_ResultValue<T> value) value,
   }) {
     return value(this);
@@ -476,7 +345,6 @@ class _$_ResultValue<T> implements _ResultValue<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ResultError<T> value)? error,
-    TResult Function(_ResultLoading<T> value)? loading,
     TResult Function(_ResultValue<T> value)? value,
   }) {
     return value?.call(this);
@@ -486,7 +354,6 @@ class _$_ResultValue<T> implements _ResultValue<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ResultError<T> value)? error,
-    TResult Function(_ResultLoading<T> value)? loading,
     TResult Function(_ResultValue<T> value)? value,
     required TResult orElse(),
   }) {
