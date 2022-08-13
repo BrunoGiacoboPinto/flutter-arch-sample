@@ -45,6 +45,10 @@ class InMemmoryTodoDataSource implements TodoDataSource {
   Future<void> addTodo(TodoModel todo) async {
     _cache[todo.id] = todo;
   }
+
+  void reset() {
+    _cache.clear();
+  }
 }
 
 class RemoteTodoDataSource implements TodoDataSource {
@@ -64,5 +68,3 @@ class RemoteTodoDataSource implements TodoDataSource {
   @override
   Future<List<TodoModel>> getTodos() async => todoApi.getTodos();
 }
-
-
