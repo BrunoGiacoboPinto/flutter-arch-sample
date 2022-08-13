@@ -1,11 +1,37 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
 void main() {
-  runApp(const App());
+  final logger = Logger(
+    printer: PrettyPrinter(
+      errorMethodCount: 8,
+      printEmojis: false,
+      lineLength: 120,
+      methodCount: 2,
+      colors: true,
+    ),
+  );
+
+  runZonedGuarded<void>(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+      runApp(const App());
+    },
+    (error, stackTrace) {
+      if (kDebugMode) {
+        logger.i('FAIL: $error\n$stackTrace', error, stackTrace);
+      } else {
+        logger.e('FAIL: $error\n$stackTrace', error, stackTrace);
+      }
+    },
+  );
 }
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +46,7 @@ class App extends StatelessWidget {
 }
 
 class Page extends StatefulWidget {
-  const Page({Key? key, required this.title}) : super(key: key);
+  const Page({super.key, required this.title});
 
   final String title;
 
