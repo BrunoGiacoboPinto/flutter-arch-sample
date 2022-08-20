@@ -1,13 +1,13 @@
-import 'package:flutter_arch_sample/shared/data/todo_repository.dart';
+import 'package:flutter_arch_sample/shared/data/data.dart';
 import 'package:flutter_arch_sample/shared/models/result.dart';
 import 'package:flutter_arch_sample/shared/models/todo.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
 class ListTodoUseCase {
-  ListTodoUseCase(this.repository);
+  ListTodoUseCase(@Named.from(TodoRepository) this.repository);
 
-  final TodoRepository repository;
+  final TodoDataSource repository;
 
   Future<Result<List<TodoModel>>> getTodos() async {
     try {
