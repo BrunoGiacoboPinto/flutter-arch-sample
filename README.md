@@ -1,10 +1,10 @@
-[![CI-QA](https://github.com/BrunoGiacoboPinto/flutter-arch-sample/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/BrunoGiacoboPinto/flutter-arch-sample/actions/workflows/ci.yml)
+# Flutter Architecture Sample
 
-## Flutter Architecture Sample
+[![CI-QA](https://github.com/BrunoGiacoboPinto/flutter-arch-sample/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/BrunoGiacoboPinto/flutter-arch-sample/actions/workflows/ci.yml)
 
 A Simple Flutter project to explore architectural concepts.
 
-### Project Goals
+## Project Goals
 
 In order for code to scale and to be maintainable, a software project must have a well-defined
 and easy to understand architecture. This premisses, however, are not easy to achieve.
