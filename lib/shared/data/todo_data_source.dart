@@ -27,7 +27,7 @@ abstract class TodoDataSource {
   Future<void> addAllTodos(List<TodoModel> todos);
 }
 
-@Named('InMemoryTodoDatSource')
+@named
 @Injectable(as: TodoDataSource)
 class InMemoryTodoDatSource implements TodoDataSource {
   final _cache = <int, TodoModel>{};
@@ -58,7 +58,7 @@ class InMemoryTodoDatSource implements TodoDataSource {
   }
 }
 
-@Named('RemoteTodoDataSource')
+@named
 @Injectable(as: TodoDataSource)
 class RemoteTodoDataSource implements TodoDataSource {
   RemoteTodoDataSource(this.todoApi);
