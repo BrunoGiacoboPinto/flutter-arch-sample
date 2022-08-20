@@ -27,9 +27,9 @@ abstract class TodoDataSource {
   Future<void> addAllTodos(List<TodoModel> todos);
 }
 
-@Named('InMemmoryTodoDataSource')
+@Named('InMemoryTodoDatSource')
 @Injectable(as: TodoDataSource)
-class InMemmoryTodoDataSource implements TodoDataSource {
+class InMemoryTodoDatSource implements TodoDataSource {
   final _cache = <int, TodoModel>{};
 
   @override

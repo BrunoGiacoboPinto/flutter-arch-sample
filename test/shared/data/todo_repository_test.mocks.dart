@@ -21,29 +21,48 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: subtype_of_sealed_class
 
 class _FakeTodoApi_0 extends _i1.SmartFake implements _i2.TodoApi {
-  _FakeTodoApi_0(Object parent, Invocation parentInvocation) : super(parent, parentInvocation);
+  _FakeTodoApi_0(Object parent, Invocation parentInvocation)
+      : super(parent, parentInvocation);
 }
 
 class _FakeTodoModel_1 extends _i1.SmartFake implements _i3.TodoModel {
-  _FakeTodoModel_1(Object parent, Invocation parentInvocation) : super(parent, parentInvocation);
+  _FakeTodoModel_1(Object parent, Invocation parentInvocation)
+      : super(parent, parentInvocation);
 }
 
 /// A class which mocks [RemoteTodoDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockRemoteTodoDataSource extends _i1.Mock implements _i2.RemoteTodoDataSource {
+class MockRemoteTodoDataSource extends _i1.Mock
+    implements _i2.RemoteTodoDataSource {
   MockRemoteTodoDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i2.TodoApi get todoApi => (super.noSuchMethod(Invocation.getter(#todoApi), returnValue: _FakeTodoApi_0(this, Invocation.getter(#todoApi))) as _i2.TodoApi);
+  _i2.TodoApi get todoApi => (super.noSuchMethod(Invocation.getter(#todoApi),
+          returnValue: _FakeTodoApi_0(this, Invocation.getter(#todoApi)))
+      as _i2.TodoApi);
   @override
-  _i4.Future<void> addAllTodos(List<_i3.TodoModel>? todos) => (super.noSuchMethod(Invocation.method(#addAllTodos, [todos]), returnValue: _i4.Future<void>.value(), returnValueForMissingStub: _i4.Future<void>.value()) as _i4.Future<void>);
+  _i4.Future<void> addAllTodos(List<_i3.TodoModel>? todos) =>
+      (super.noSuchMethod(Invocation.method(#addAllTodos, [todos]),
+              returnValue: _i4.Future<void>.value(),
+              returnValueForMissingStub: _i4.Future<void>.value())
+          as _i4.Future<void>);
   @override
-  _i4.Future<void> addTodo(_i3.TodoModel? todo) => (super.noSuchMethod(Invocation.method(#addTodo, [todo]), returnValue: _i4.Future<void>.value(), returnValueForMissingStub: _i4.Future<void>.value()) as _i4.Future<void>);
+  _i4.Future<void> addTodo(_i3.TodoModel? todo) => (super.noSuchMethod(
+      Invocation.method(#addTodo, [todo]),
+      returnValue: _i4.Future<void>.value(),
+      returnValueForMissingStub: _i4.Future<void>.value()) as _i4.Future<void>);
   @override
-  _i4.Future<_i3.TodoModel> getTodoById(int? id) => (super.noSuchMethod(Invocation.method(#getTodoById, [id]), returnValue: _i4.Future<_i3.TodoModel>.value(_FakeTodoModel_1(this, Invocation.method(#getTodoById, [id])))) as _i4.Future<_i3.TodoModel>);
+  _i4.Future<_i3.TodoModel> getTodoById(int? id) => (super.noSuchMethod(
+          Invocation.method(#getTodoById, [id]),
+          returnValue: _i4.Future<_i3.TodoModel>.value(
+              _FakeTodoModel_1(this, Invocation.method(#getTodoById, [id]))))
+      as _i4.Future<_i3.TodoModel>);
   @override
-  _i4.Future<List<_i3.TodoModel>> getTodos() => (super.noSuchMethod(Invocation.method(#getTodos, []), returnValue: _i4.Future<List<_i3.TodoModel>>.value(<_i3.TodoModel>[])) as _i4.Future<List<_i3.TodoModel>>);
+  _i4.Future<List<_i3.TodoModel>> getTodos() => (super.noSuchMethod(
+          Invocation.method(#getTodos, []),
+          returnValue: _i4.Future<List<_i3.TodoModel>>.value(<_i3.TodoModel>[]))
+      as _i4.Future<List<_i3.TodoModel>>);
 }

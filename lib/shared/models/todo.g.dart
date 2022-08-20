@@ -13,7 +13,8 @@ _$_TodoModel _$$_TodoModelFromJson(Map<String, dynamic> json) => _$_TodoModel(
       id: json['id'] as int,
     );
 
-Map<String, dynamic> _$$_TodoModelToJson(_$_TodoModel instance) => <String, dynamic>{
+Map<String, dynamic> _$$_TodoModelToJson(_$_TodoModel instance) =>
+    <String, dynamic>{
       'completed': instance.completed,
       'title': instance.title,
       'userId': instance.userId,

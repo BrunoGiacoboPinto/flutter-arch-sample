@@ -8,7 +8,7 @@ import 'todo_data_source.dart';
 class TodoRepository implements TodoDataSource {
   TodoRepository(
     @Named('RemoteTodoDataSource') this.remoteTodoDataSource,
-    @Named('InMemmoryTodoDataSource') this.inMemmoryTodoDataSource,
+    @Named('InMemoryTodoDatSource') this.inMemmoryTodoDataSource,
   );
 
   final TodoDataSource remoteTodoDataSource;

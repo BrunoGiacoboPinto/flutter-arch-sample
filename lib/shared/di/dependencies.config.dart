@@ -16,15 +16,22 @@ import 'dependencies.dart' as _i7; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
-_i1.GetIt $initGetIt(_i1.GetIt get, {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
+_i1.GetIt $initGetIt(_i1.GetIt get,
+    {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final networkModule = _$NetworkModule();
   gh.factory<_i3.Dio>(() => networkModule.dio);
   gh.factory<_i4.TodoApi>(() => _i4.TodoApi.create(get<_i3.Dio>()));
-  gh.factory<_i4.TodoDataSource>(() => _i4.InMemmoryTodoDataSource(), instanceName: 'InMemmoryTodoDataSource');
-  gh.factory<_i4.TodoDataSource>(() => _i4.RemoteTodoDataSource(get<_i4.TodoApi>()), instanceName: 'RemoteTodoDataSource');
-  gh.factory<_i5.TodoRepository>(() => _i5.TodoRepository(get<_i4.TodoDataSource>(instanceName: 'RemoteTodoDataSource'), get<_i4.TodoDataSource>(instanceName: 'InMemmoryTodoDataSource')));
-  gh.factory<_i6.ListTodoUseCase>(() => _i6.ListTodoUseCase(get<_i5.TodoRepository>()));
+  gh.factory<_i4.TodoDataSource>(() => _i4.InMemoryTodoDatSource(),
+      instanceName: 'InMemoryTodoDatSource');
+  gh.factory<_i4.TodoDataSource>(
+      () => _i4.RemoteTodoDataSource(get<_i4.TodoApi>()),
+      instanceName: 'RemoteTodoDataSource');
+  gh.factory<_i5.TodoRepository>(() => _i5.TodoRepository(
+      get<_i4.TodoDataSource>(instanceName: 'RemoteTodoDataSource'),
+      get<_i4.TodoDataSource>(instanceName: 'InMemoryTodoDatSource')));
+  gh.factory<_i6.ListTodoUseCase>(
+      () => _i6.ListTodoUseCase(get<_i5.TodoRepository>()));
   return get;
 }
 

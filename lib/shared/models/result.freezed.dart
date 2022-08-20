@@ -11,25 +11,30 @@ part of 'result.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Result<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message, Object? error, StackTrace? stackTrace) error,
+    required TResult Function(
+            String message, Object? error, StackTrace? stackTrace)
+        error,
     required TResult Function(T value) value,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String message, Object? error, StackTrace? stackTrace)? error,
+    TResult Function(String message, Object? error, StackTrace? stackTrace)?
+        error,
     TResult Function(T value)? value,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message, Object? error, StackTrace? stackTrace)? error,
+    TResult Function(String message, Object? error, StackTrace? stackTrace)?
+        error,
     TResult Function(T value)? value,
     required TResult orElse(),
   }) =>
@@ -57,7 +62,8 @@ mixin _$Result<T> {
 
 /// @nodoc
 abstract class $ResultCopyWith<T, $Res> {
-  factory $ResultCopyWith(Result<T> value, $Res Function(Result<T>) then) = _$ResultCopyWithImpl<T, $Res>;
+  factory $ResultCopyWith(Result<T> value, $Res Function(Result<T>) then) =
+      _$ResultCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
@@ -71,13 +77,19 @@ class _$ResultCopyWithImpl<T, $Res> implements $ResultCopyWith<T, $Res> {
 
 /// @nodoc
 abstract class _$$_ResultErrorCopyWith<T, $Res> {
-  factory _$$_ResultErrorCopyWith(_$_ResultError<T> value, $Res Function(_$_ResultError<T>) then) = __$$_ResultErrorCopyWithImpl<T, $Res>;
+  factory _$$_ResultErrorCopyWith(
+          _$_ResultError<T> value, $Res Function(_$_ResultError<T>) then) =
+      __$$_ResultErrorCopyWithImpl<T, $Res>;
   $Res call({String message, Object? error, StackTrace? stackTrace});
 }
 
 /// @nodoc
-class __$$_ResultErrorCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res> implements _$$_ResultErrorCopyWith<T, $Res> {
-  __$$_ResultErrorCopyWithImpl(_$_ResultError<T> _value, $Res Function(_$_ResultError<T>) _then) : super(_value, (v) => _then(v as _$_ResultError<T>));
+class __$$_ResultErrorCopyWithImpl<T, $Res>
+    extends _$ResultCopyWithImpl<T, $Res>
+    implements _$$_ResultErrorCopyWith<T, $Res> {
+  __$$_ResultErrorCopyWithImpl(
+      _$_ResultError<T> _value, $Res Function(_$_ResultError<T>) _then)
+      : super(_value, (v) => _then(v as _$_ResultError<T>));
 
   @override
   _$_ResultError<T> get _value => super._value as _$_ResultError<T>;
@@ -121,20 +133,33 @@ class _$_ResultError<T> implements _ResultError<T> {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$_ResultError<T> && const DeepCollectionEquality().equals(other.message, message) && const DeepCollectionEquality().equals(other.error, error) && const DeepCollectionEquality().equals(other.stackTrace, stackTrace));
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ResultError<T> &&
+            const DeepCollectionEquality().equals(other.message, message) &&
+            const DeepCollectionEquality().equals(other.error, error) &&
+            const DeepCollectionEquality()
+                .equals(other.stackTrace, stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(message), const DeepCollectionEquality().hash(error), const DeepCollectionEquality().hash(stackTrace));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(message),
+      const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(stackTrace));
 
   @JsonKey(ignore: true)
   @override
-  _$$_ResultErrorCopyWith<T, _$_ResultError<T>> get copyWith => __$$_ResultErrorCopyWithImpl<T, _$_ResultError<T>>(this, _$identity);
+  _$$_ResultErrorCopyWith<T, _$_ResultError<T>> get copyWith =>
+      __$$_ResultErrorCopyWithImpl<T, _$_ResultError<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message, Object? error, StackTrace? stackTrace) error,
+    required TResult Function(
+            String message, Object? error, StackTrace? stackTrace)
+        error,
     required TResult Function(T value) value,
   }) {
     return error(message, this.error, stackTrace);
@@ -143,7 +168,8 @@ class _$_ResultError<T> implements _ResultError<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String message, Object? error, StackTrace? stackTrace)? error,
+    TResult Function(String message, Object? error, StackTrace? stackTrace)?
+        error,
     TResult Function(T value)? value,
   }) {
     return error?.call(message, this.error, stackTrace);
@@ -152,7 +178,8 @@ class _$_ResultError<T> implements _ResultError<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message, Object? error, StackTrace? stackTrace)? error,
+    TResult Function(String message, Object? error, StackTrace? stackTrace)?
+        error,
     TResult Function(T value)? value,
     required TResult orElse(),
   }) {
@@ -195,24 +222,34 @@ class _$_ResultError<T> implements _ResultError<T> {
 }
 
 abstract class _ResultError<T> implements Result<T> {
-  const factory _ResultError({required final String message, final Object? error, final StackTrace? stackTrace}) = _$_ResultError<T>;
+  const factory _ResultError(
+      {required final String message,
+      final Object? error,
+      final StackTrace? stackTrace}) = _$_ResultError<T>;
 
   String get message;
   Object? get error;
   StackTrace? get stackTrace;
   @JsonKey(ignore: true)
-  _$$_ResultErrorCopyWith<T, _$_ResultError<T>> get copyWith => throw _privateConstructorUsedError;
+  _$$_ResultErrorCopyWith<T, _$_ResultError<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$_ResultValueCopyWith<T, $Res> {
-  factory _$$_ResultValueCopyWith(_$_ResultValue<T> value, $Res Function(_$_ResultValue<T>) then) = __$$_ResultValueCopyWithImpl<T, $Res>;
+  factory _$$_ResultValueCopyWith(
+          _$_ResultValue<T> value, $Res Function(_$_ResultValue<T>) then) =
+      __$$_ResultValueCopyWithImpl<T, $Res>;
   $Res call({T value});
 }
 
 /// @nodoc
-class __$$_ResultValueCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res> implements _$$_ResultValueCopyWith<T, $Res> {
-  __$$_ResultValueCopyWithImpl(_$_ResultValue<T> _value, $Res Function(_$_ResultValue<T>) _then) : super(_value, (v) => _then(v as _$_ResultValue<T>));
+class __$$_ResultValueCopyWithImpl<T, $Res>
+    extends _$ResultCopyWithImpl<T, $Res>
+    implements _$$_ResultValueCopyWith<T, $Res> {
+  __$$_ResultValueCopyWithImpl(
+      _$_ResultValue<T> _value, $Res Function(_$_ResultValue<T>) _then)
+      : super(_value, (v) => _then(v as _$_ResultValue<T>));
 
   @override
   _$_ResultValue<T> get _value => super._value as _$_ResultValue<T>;
@@ -245,20 +282,27 @@ class _$_ResultValue<T> implements _ResultValue<T> {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$_ResultValue<T> && const DeepCollectionEquality().equals(other.value, value));
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ResultValue<T> &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
-  _$$_ResultValueCopyWith<T, _$_ResultValue<T>> get copyWith => __$$_ResultValueCopyWithImpl<T, _$_ResultValue<T>>(this, _$identity);
+  _$$_ResultValueCopyWith<T, _$_ResultValue<T>> get copyWith =>
+      __$$_ResultValueCopyWithImpl<T, _$_ResultValue<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message, Object? error, StackTrace? stackTrace) error,
+    required TResult Function(
+            String message, Object? error, StackTrace? stackTrace)
+        error,
     required TResult Function(T value) value,
   }) {
     return value(this.value);
@@ -267,7 +311,8 @@ class _$_ResultValue<T> implements _ResultValue<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String message, Object? error, StackTrace? stackTrace)? error,
+    TResult Function(String message, Object? error, StackTrace? stackTrace)?
+        error,
     TResult Function(T value)? value,
   }) {
     return value?.call(this.value);
@@ -276,7 +321,8 @@ class _$_ResultValue<T> implements _ResultValue<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message, Object? error, StackTrace? stackTrace)? error,
+    TResult Function(String message, Object? error, StackTrace? stackTrace)?
+        error,
     TResult Function(T value)? value,
     required TResult orElse(),
   }) {
@@ -323,5 +369,6 @@ abstract class _ResultValue<T> implements Result<T> {
 
   T get value;
   @JsonKey(ignore: true)
-  _$$_ResultValueCopyWith<T, _$_ResultValue<T>> get copyWith => throw _privateConstructorUsedError;
+  _$$_ResultValueCopyWith<T, _$_ResultValue<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

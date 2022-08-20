@@ -17,7 +17,7 @@ List<TodoModel> mockedTodoList({int count = 10}) {
 void main() {
   group('TodoRepository', () {
     final remoteDataSource = MockRemoteTodoDataSource();
-    final inMemmoryDataSource = InMemmoryTodoDataSource();
+    final inMemmoryDataSource = InMemoryTodoDatSource();
 
     setUp(() {
       reset(remoteDataSource);
