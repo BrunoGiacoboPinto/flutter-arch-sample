@@ -6,10 +6,11 @@ import 'dependencies.config.dart';
 
 final inject = GetIt.instance;
 
-@InjectableInit()
+@InjectableInit(preferRelativeImports: false)
 void configureDependencies() => $initGetIt(inject);
 
 @module
 abstract class NetworkModule {
+  @lazySingleton
   Dio get dio => Dio();
 }

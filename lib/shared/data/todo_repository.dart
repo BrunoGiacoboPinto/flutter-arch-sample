@@ -4,7 +4,8 @@ import 'package:logger/logger.dart';
 
 import 'todo_data_source.dart';
 
-@injectable
+@named
+@LazySingleton(as: TodoDataSource)
 class TodoRepository implements TodoDataSource {
   TodoRepository(
     @Named.from(RemoteTodoDataSource) this.remoteTodoDataSource,
