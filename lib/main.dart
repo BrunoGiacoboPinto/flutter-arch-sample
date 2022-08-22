@@ -20,7 +20,7 @@ void main() {
 
   runZonedGuarded<void>(
     () async {
-      configureDependencies();
+      configureDependencies('prod');
       WidgetsFlutterBinding.ensureInitialized();
       runApp(const App());
     },
