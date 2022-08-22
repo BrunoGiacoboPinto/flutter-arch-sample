@@ -1,11 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_arch_sample/shared/models/models.dart';
 import 'package:injectable/injectable.dart';
-import 'package:mockito/annotations.dart';
 import 'package:retrofit/retrofit.dart';
-
-@GenerateMocks([TodoDataSource])
-import 'todo_data_source.mocks.dart';
 
 part 'todo_data_source.g.dart';
 
@@ -80,10 +76,4 @@ class RemoteTodoDataSource implements TodoDataSource {
 
   @override
   Future<List<TodoModel>> getTodos() async => todoApi.getTodos();
-}
-
-@module
-abstract class MockTodoDataSourceModeule {
-  @Environment('mocked')
-  TodoDataSource get mockTodoDataSource => MockTodoDataSource();
 }
